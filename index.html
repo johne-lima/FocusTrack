@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registro de Distrações</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
+
+    <header class="text-center mb-6">
+        <h1 class="text-3xl font-bold text-blue-400">Registro de Distrações</h1>
+        <p class="text-gray-400 mt-1 text-sm">Anote o que te tirou do foco e acompanhe seus padrões</p>
+    </header>
+
+    <main class="w-full max-w-lg bg-gray-800 p-6 rounded-2xl shadow-lg mb-5">
+        <form id="distraction-form" class="flex flex-col gap-4">
+            <!-- Descrição -->
+            <div>
+                <label for="descricao" class="block text-sm font-semibold mb-1">O que te distraiu?</label>
+                <input id="descricao" type="text" placeholder="Ex: peguei o celular, abri o YouTube..."
+                    class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-400 outline-none"
+                    required />
+            </div>
+
+            <!-- Categoria -->
+            <div>
+                <label for="categoria" class="block text-sm font-semibold mb-1">Categoria</label>
+                <select id="categoria"
+                    class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-400 outline-none">
+                    <option value="">Selecione...</option>
+                    <option value="Celular">Celular</option>
+                    <option value="Redes Sociais">Redes Sociais</option>
+                    <option value="Conversas">Conversas</option>
+                    <option value="Tarefas Paralelas">Tarefas Paralelas</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+
+            <!-- Emojis de Foco -->
+            <div>
+                <label class="block text-sm font-semibold">
+                    Como estava seu foco <span class="font-bold uppercase mb-1.5">antes</span> de se distrair?
+                </label>
+                <div id="emoji-foco" class="flex justify-between text-3xl cursor-pointer select-none mt-4">
+                    <span data-value="1" title="1 - Distraído 😴">😴
+                        <span class="block text-[12px]">Distraído</span>
+                    </span>
+                    <span data-value="2" title="2 - Sonolento 😕">😕
+                        <span class="block text-[12px]">Sonolento</span>
+                    </span>
+                    <span data-value="3" title="3 - Neutro 😐">😐
+                        <span class="block text-[12px]">Neutro</span>
+                    </span>
+                    <span data-value="4" title="4 - Atento 🙂">🙂
+                        <span class="block text-[12px]">Atento</span>
+                    </span>
+                    <span data-value="5" title="5 - Totalmente focado 😎">😎
+                        <span class="block text-[12px]">Focado</span>
+                    </span>
+                </div>
+                <input type="hidden" id="foco" value="3" />
+            </div>
+
+            <!-- Botão -->
+            <button type="submit"
+                class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition">
+                Registrar distração
+            </button>
+        </form>
+
+        <!-- Histórico -->
+        <section class="mt-8">
+            <h2 class="text-xl font-semibold text-blue-400 mb-3 text-center">Histórico</h2>
+            <ul id="historico" class="space-y-3"></ul>
+        </section>
+    </main>
+    <footer>
+        <p class="text-center text-gray-400 text-sm">Desenvolvido por <a href="https://github.com/johne-lima"
+                class="font-bold hover:text-blue-200" target="_blank">Johne Lima</a>
+    </footer>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>
